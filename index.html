@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>♟ CHESS</h1>
+    <p class="subtitle">The Royal Game</p>
+
+    <div id="modeScreen">
+        <p class="mode-title">Choose Game Mode</p>
+
+        <div>
+            <p style="text-align:center;color:rgba(201,168,76,0.6);font-size:0.8rem;letter-spacing:0.15em;margin-bottom:8px;">VS COMPUTER</p>
+            <div class="diff-row" style="justify-content:center;margin-bottom:10px;">
+                <button class="diff-btn active" data-diff="easy">Easy</button>
+                <button class="diff-btn" data-diff="medium">Medium</button>
+                <button class="diff-btn" data-diff="hard">Hard</button>
+            </div>
+            <button class="mode-btn" id="btnBot">⚔ Play vs Bot</button>
+        </div>
+
+        <button class="mode-btn" id="btnPass">🤝 Pass & Play</button>
+    </div>
+
+    <div id="gameScreen">
+        <div class="game-wrap">
+
+            <div class="board-container">
+                <div class="board-labels-row" id="fileLabelsTop"></div>
+                <div id="boardRows"></div>
+                <div class="board-labels-row" id="fileLabelsBot"></div>
+            </div>
+
+            <div class="side-panel">
+                <div class="panel-card">
+                    <div class="panel-label">Status</div>
+                    <div id="statusText">White's turn</div>
+                    <div class="turn-indicator">
+                        <div class="turn-dot white" id="turnDot"></div>
+                        <span id="turnLabel" style="font-size:0.8rem;color:rgba(245,239,224,0.5)">White to move</span>
+                    </div>
+                    <div class="thinking" id="thinkingEl">
+                        <span>Bot thinking</span>
+                        <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <div class="panel-label">Captured</div>
+                    <div class="panel-label" style="font-size:0.6rem;margin-top:4px;">White took:</div>
+                    <div class="captured-pieces" id="capturedByWhite"></div>
+                    <div class="panel-label" style="font-size:0.6rem;margin-top:6px;">Black took:</div>
+                    <div class="captured-pieces" id="capturedByBlack"></div>
+                </div>
+
+                <div class="panel-card">
+                    <div class="panel-label">Moves</div>
+                    <div id="moveList"></div>
+                </div>
+
+                <div>
+                    <button class="btn" id="passBtn">🔄 Pass Turn</button>
+                    <button class="btn" id="undoBtn">↩ Undo</button>
+                    <button class="btn danger" id="resignBtn">⚑ Resign</button>
+                    <button class="btn" id="newGameBtn">⟳ New Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="promoModal">
+        <div class="promo-box">
+            <h3>PROMOTE PAWN</h3>
+            <div class="promo-pieces" id="promoPieces"></div>
+        </div>
+    </div>
+
+    <div id="overlay">
+        <div class="overlay-box">
+            <h2 id="overlayTitle">Checkmate!</h2>
+            <p id="overlayMsg">White wins by checkmate.</p>
+            <div class="overlay-btns">
+                <button class="btn" id="overlayNew">New Game</button>
+                <button class="btn" id="overlayMenu">Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
