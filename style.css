@@ -293,7 +293,80 @@ h1 {
 .btn.danger { border-color: rgba(220,80,80,0.5); color: #e06060; }
 .btn.danger:hover { background: #e06060; color: var(--dark); }
 
-/* THINKING ANIMATION */
+/* PROMO MODAL */
+#promoModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+#promoModal.show { display: flex; }
+
+.promo-box {
+  background: var(--brown-dark);
+  border: 2px solid var(--gold);
+  padding: 30px;
+  text-align: center;
+}
+.promo-box h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  margin-bottom: 20px;
+  letter-spacing: 0.15em;
+}
+.promo-pieces {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.promo-piece {
+  font-size: 3rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 8px;
+  border: 1px solid transparent;
+}
+.promo-piece:hover {
+  transform: scale(1.2);
+  border-color: var(--gold);
+}
+
+/* OVERLAY */
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 90;
+  align-items: center;
+  justify-content: center;
+}
+#overlay.show { display: flex; }
+.overlay-box {
+  background: var(--brown-dark);
+  border: 2px solid var(--gold);
+  padding: 40px;
+  text-align: center;
+  max-width: 340px;
+}
+.overlay-box h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.overlay-box p {
+  color: rgba(245,239,224,0.7);
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+.overlay-btns { display: flex; gap: 12px; justify-content: center; }
+.overlay-btns .btn { width: auto; padding: 10px 24px; }
+
+/* THINKING */
 .thinking {
   display: none;
   align-items: center;
@@ -307,3 +380,10 @@ h1 {
 .dot:nth-child(2) { animation-delay: 0.2s; }
 .dot:nth-child(3) { animation-delay: 0.4s; }
 @keyframes blink { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+#passBtn { display: none; }
+
+@media (max-width: 520px) {
+  .side-panel { max-width: 100%; min-width: unset; width: 90vw; }
+  h1 { font-size: 1.4rem; }
+}
